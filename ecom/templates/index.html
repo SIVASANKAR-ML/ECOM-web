@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <div class="hero-content">
+        <h2>Welcome to Our Store</h2>
+        <p>Find the best products at unbeatable prices</p>
+        <a href="#" class="btn-primary">Shop Now</a>
+    </div>
+</div>
+
+<section class="featured-products-section">
+    <div class="container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            {% for product in products %}
+            <div class="product-card">
+                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                <div class="product-details">
+                    <h3 class="product-title">{{ product.title }}</h3>
+                    <p class="product-category">{{ product.category }}</p>
+                    <p class="product-vendor">{{ product.Vendor }}</p>
+                    <p class="product-price">{{ product.price }}</p>
+                    <a href="#" class="btn-secondary">Buy Now</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
