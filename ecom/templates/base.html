@@ -15,12 +15,11 @@
                     <ul>
                         <li><a href="{% url 'index:index' %}">Home</a></li>
                         <li class="dropdown">
-                            <a href="#">Shop</a>
+                            <a href="#">Category</a>
                             <div class="dropdown-content">
                                 <a href="#" onclick="showContent('option1')">Electronics</a>
-                                <a href="#" onclick="showContent('option2')">Mobile</a>
-                                <a href="#" onclick="showContent('option3')">Laptop</a>
-                                <a href="#" onclick="showContent('option4')">Dress</a>
+                                <a href="#" onclick="showContent('option2')">Dress</a>
+                                <a href="#" onclick="showContent('option3')">All</a>
                             </div>
                         </li>
                         {% if user.is_authenticated %}

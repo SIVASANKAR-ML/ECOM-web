@@ -129,6 +129,7 @@ nav ul li a {
 }
 
 .product-card {
+    position: relative; /* Ensures that the span is positioned relative to this card */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -173,7 +174,17 @@ nav ul li a {
 .product-price {
     margin-bottom: 20px; /* Add spacing below the price */
 }
-
+.product-percentage {
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    background-color: rgba(246, 140, 140, 0.8); /* Example background color for readability */
+    padding: 5px 10px; /* Example padding */
+    border-radius: 3px; /* Example border radius */
+    font-size: 14px; /* Example font size */
+    font-weight: bold; /* Example font weight */
+    color: #333; /* Example text color */
+}
 .btn-secondary {
     background-color: #232f3e;
     color: #fff;

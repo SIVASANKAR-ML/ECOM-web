@@ -93,6 +93,12 @@ class Product(models.Model):
     # tags = models.ForeignKey(Tags, on_delete=models.SET_NULL, null=True)
 
     product_status = models.CharField(choices=STATUS, max_length=10, default='in_review')
+
+    status=models.BooleanField(default=True)
+    in_stock=models.BooleanField(default=True)
+    featured=models.BooleanField(default=False)
+    digital=models.BooleanField(default=False)
+    
     sku = ShortUUIDField(unique=True, max_length=30, alphabet='abcdefghi1123456')
 
     date = models.DateField(auto_now_add=True)
