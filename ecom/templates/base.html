@@ -15,11 +15,11 @@
                     <ul>
                         <li><a href="{% url 'index:index' %}">Home</a></li>
                         <li class="dropdown">
-                            <a href="#">Category</a>
+                            <a href="{% url 'index:category-list' %}">Category</a>
                             <div class="dropdown-content">
                                 <a href="#" onclick="showContent('option1')">Electronics</a>
                                 <a href="#" onclick="showContent('option2')">Dress</a>
-                                <a href="#" onclick="showContent('option3')">All</a>
+                                <a href="{% url 'index:product-list' %}" onclick="showContent('option3')">All</a>
                             </div>
                         </li>
                         {% if user.is_authenticated %}
@@ -43,7 +43,7 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 My E-commerce Website. All rights reserved.</p>
+            <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
         </div>
     </footer>
 </body>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Category{% endblock %}
+
+{% block content %}
+<section class="category-section">
+    <div class="container-cat">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            {% for category in categories %}
+            <div class="category-card">
+                <a href="#" class="category-link">
+                    <div class="category-image-container">
+                        <img src="{{ category.image.url }}" alt="{{ category.title }}" class="category-image">
+                    </div>
+                    <div class="category-details">
+                        <h3 class="category-title">{{ category.title }}</h3>
+                        <p class="category-count">{{ category.count }} products</p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -11,5 +11,7 @@ def product_list(request):
     return render(request,'product-list.html',{'products':products})
 
 def category_list(request):
-    category=Category.objects.all()
-    return render(request,'category-list.html',{'category':category})
+    categories = Category.objects.all()
+    for category in categories:
+        category.count = category.products.count()  # 'products' is the related name for the reverse relation
+    return render(request, 'category-list.html', {'categories': categories})

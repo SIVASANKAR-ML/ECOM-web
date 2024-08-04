@@ -4,12 +4,104 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes at least the full height of the viewport */
+}
+
+/* Wrapper for the main content */
+.content-wrapper {
+    flex: 1; /* Takes up all the available space in the flex container */
 }
 
 /* Container */
 .container {
     width: 80%;
     margin: 0 auto;
+    padding: 0; /* Remove padding for consistency */
+}
+
+/* Container for Category Section */
+.container-cat {
+    width: 60%;
+    margin: 0 auto;
+    padding: 0; /* Remove padding */
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0; /* Adjust as needed */
+    color: #333;
+}
+
+/* Category Grid */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 0; /* Ensure no margin at the top */
+    padding: 0; /* Remove padding */
+}
+
+/* Category Card */
+.category-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(25% - 20px); /* Adjust the width as needed */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0; /* Ensure no margin at the top */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Category Link */
+.category-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* Category Image Container */
+.category-image-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f7f7f7;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Category Details */
+.category-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.category-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.category-count {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0;
 }
 
 /* Header Styles */
@@ -135,13 +227,14 @@ nav ul li a {
     border-radius: 5px;
     padding: 15px;
     text-align: left;
-    width: 10%;
+    width: calc(10% - 20px); /* Adjust the width of the cards */
     margin-bottom: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
 .product-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -159,11 +252,12 @@ nav ul li a {
     margin: 0 0 8px;
 }
 
-.product-category{
-   font: size 14px;
-   color: #0056b3;
-   font-style: italic; 
+.product-category {
+    font-size: 14px;
+    color: #0056b3;
+    font-style: italic;
 }
+
 .product-vendor,
 .product-price {
     font-size: 14px;
@@ -174,6 +268,7 @@ nav ul li a {
 .product-price {
     margin-bottom: 20px; /* Add spacing below the price */
 }
+
 .product-percentage {
     position: absolute;
     top: 10px; /* Adjust as needed */
@@ -185,6 +280,7 @@ nav ul li a {
     font-weight: bold; /* Example font weight */
     color: #333; /* Example text color */
 }
+
 .btn-secondary {
     background-color: #232f3e;
     color: #fff;
@@ -200,13 +296,13 @@ nav ul li a {
     background-color: #1a1a1a;
 }
 
-
 /* Footer Styles */
 footer {
     background-color: #232f3e;
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    margin-top: auto; /* Ensures the footer sticks to the bottom if the content is shorter than the viewport */
 }
 
 footer p {
@@ -370,4 +466,110 @@ footer p {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-sizing: border-box;
+}
+
+
+/* category css */
+
+/* General Styles */
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f3f6;
+} */
+
+/* Container */
+.container-cat {
+    width: 60%;
+    margin: 0 auto;
+    padding: 0; /* Remove padding */
+}
+
+/* Section Title */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0; /* Adjust as needed */
+    color: #333;
+}
+
+/* Category Grid */
+.category-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-top: 0; /* Ensure no margin at the top */
+    padding: 0; /* Remove padding */
+}
+
+/* Category Card */
+.category-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(25% - 20px); /* Adjust the width as needed */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 0; /* Ensure no margin at the top */
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Category Link */
+.category-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+
+/* Category Image Container */
+.category-image-container {
+    width: 100%;
+    overflow: hidden;
+    background-color: #f7f7f7;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Category Details */
+.category-details {
+    padding: 15px;
+    text-align: center;
+}
+
+.category-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.category-count {
+    font-size: 14px;
+    color: #888;
+    margin: 5px 0;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #232f3e;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
 }
