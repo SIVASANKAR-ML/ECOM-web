@@ -15,3 +15,8 @@ def category_list(request):
     for category in categories:
         category.count = category.products.count()  # 'products' is the related name for the reverse relation
     return render(request, 'category-list.html', {'categories': categories})
+
+def category_list_view(request,cid):
+    category=Category.objects.get(cid=cid)
+    products=Product.objects.filter( product_status="published",category=category)
+    return render(request,'category-list-view.html',{'category':category,'products':products})
