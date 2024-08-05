@@ -17,9 +17,10 @@
                         <li class="dropdown">
                             <a href="{% url 'index:category-list' %}">Category</a>
                             <div class="dropdown-content">
-                                <a href="#" onclick="showContent('option1')">Electronics</a>
-                                <a href="#" onclick="showContent('option2')">Dress</a>
-                                <a href="{% url 'index:product-list' %}" onclick="showContent('option3')">All</a>
+                                {% for c  in categories %}
+                                <a href="{% url 'index:category-list-view' c.cid %}" onclick="showContent('option3')">{{ c.title }}</a>
+                                {% endfor %}
+                                <a href="{% url 'index:category-list' %}" onclick="showContent('option2')">All categories</a>
                             </div>
                         </li>
                         {% if user.is_authenticated %}

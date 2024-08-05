@@ -8,7 +8,7 @@
         <div class="category-grid">
             {% for category in categories %}
             <div class="category-card">
-                <a href="#" class="category-link">
+                <a href="{% url "index:category-list-view" category.cid %}" class="category-link">
                     <div class="category-image-container">
                         <img src="{{ category.image.url }}" alt="{{ category.title }}" class="category-image">
                     </div>

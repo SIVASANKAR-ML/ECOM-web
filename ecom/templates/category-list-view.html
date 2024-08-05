@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-{% block title %}list{% endblock title %}
+{% block title %}{{ category.title }}{% endblock title %}
 
 {% block content %}
 <section class="featured-products-section">
+    <h1 class='cat-title'>{{ category.title }}</h1>
     <div class="container">
         <div class="product-grid">
             {% for product in products %}
@@ -12,8 +13,8 @@
                     <h3 class="product-title">{{ product.title }}</h3>
                     <p class="product-category">{{ product.category }}</p>
                     <p class="product-vendor">{{ product.Vendor }}</p>
-                    <span class="product-percentage">-{{ product.get_percentage|floatformat}}%</span>
-                    <p class="product-price">{{ product.price }}</p>
+                    <span class="product-percentage">-{{ product.get_percentage|floatformat }}%</span>
+                    <p class="product-price">${{ product.price }}</p>
                     <a href="#" class="btn-secondary">Buy Now</a>
                 </div>
             </div>
@@ -22,4 +23,5 @@
     </div>
 </section>
 {% endblock content %}
+
    

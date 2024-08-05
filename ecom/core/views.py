@@ -20,3 +20,4 @@ def category_list_view(request,cid):
     category=Category.objects.get(cid=cid)
     products=Product.objects.filter( product_status="published",category=category)
     return render(request,'category-list-view.html',{'category':category,'products':products})
+
