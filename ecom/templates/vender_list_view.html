@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}vender{% endblock title %}
+
+{% block content %}
+<section class="category-section">
+    <div class="container-cat">
+        <h2 class="section-title">vendors</h2>
+        <div class="category-grid">
+            {% for v in vender %}
+            <div class="category-card">
+                {% comment %} <a href="{% url "index:vender_list_view" category.cid %}" class="category-link"> {% endcomment %}
+                    <div class="category-image-container">
+                        <img src="{{ v.image.url }}" alt="{{ v.title }}" class="category-image">
+                    </div>
+                    <div class="category-details">
+                        <h3 class="category-title">{{ v.title }}</h3>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+

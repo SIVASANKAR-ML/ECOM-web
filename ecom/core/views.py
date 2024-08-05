@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Category, Product
+from .models import Category, Product,Vendor
 
 
 def index(request):
@@ -21,3 +21,6 @@ def category_list_view(request,cid):
     products=Product.objects.filter( product_status="published",category=category)
     return render(request,'category-list-view.html',{'category':category,'products':products})
 
+def vender_list_view(request):
+    vender=Vendor.objects.all()
+    return render(request,'vender_list_view.html',{'vender':vender})
