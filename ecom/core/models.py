@@ -63,6 +63,7 @@ class Vendor(models.Model):
     authenticate_rating = models.CharField(max_length=100, default='100')
     day_return = models.CharField(max_length=100, default='100')
     warranty = models.CharField(max_length=100, default='100')
+    date=models.DateField(auto_now_add=True,null=True,blank=True)
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
@@ -84,7 +85,7 @@ class Product(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category,related_name='products', on_delete=models.SET_NULL, null=True)#using related name is a good practies for showing total no of products in each category
-    Vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True)
+    Vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True,related_name='vendor')
 
     price = models.DecimalField(max_digits=10, decimal_places=2, default='599')
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default='499')

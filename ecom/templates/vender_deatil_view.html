@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="vendor-detail-container">
+    <h1 class="vendor-title">{{ vendor.name }}</h1>
+    <div class="vendor-info">
+        <div class="vendor-detail-card">
+            <div class="vendor-image">
+                <img src="{{ vender.image.url }}" alt="Vendor Image">
+            </div>
+            <div class="vendor-details-text">
+                <p class="vendor-detail"><strong>Address:</strong> {{ vender.address }}</p>
+                <p class="vendor-detail"><strong>Call us:</strong> {{ vender.contact }}</p>
+                <p class="vendor-detail"><strong>Since:</strong> {{ vender.date|date:'Y' }}</p>
+            </div>
+        </div>
+        <div class="vendor-extra">
+            <p class="vendor-detail"><strong>Description:</strong> {{ vender.description }}</p>
+        </div>
+    </div>
+    <a href="{% url 'index:vender_list_view' %}">
+        <button class="back-btn">Back to Vendor List</button>
+    </a>
+</div>
+{% endblock %}

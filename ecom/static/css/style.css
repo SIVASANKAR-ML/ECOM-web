@@ -329,6 +329,138 @@ footer p {
 .register-form-container form .submit-btn, .log-in .submit-btn {
     max-width: 350px;
 }
+/* vender adderss css */
+.vendor-addr {
+    margin: 20px auto; /* Center the card and add margin */
+    padding: 15px; /* Adjusted padding for better spacing */
+    display: flex;
+    flex-direction: column; /* Ensure vertical layout */
+    align-items: flex-start; /* Align items to the start */
+    border-radius: 10px; /* Increased border-radius for a smoother look */
+    background-color: #f5f5f5; /* Lighter background for better contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px; /* Limit width for a more contained look */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
+}
+
+.vendor-addr:hover {
+    /* Slight lift on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.vendor-addr p {
+    margin: 0; /* Remove default margin */
+    font-size: 16px; /* Adjust font size for better readability */
+    color: #333; /* Darker text color */
+    line-height: 1.5; /* Improved line spacing */
+}
+
+.vendor-addr p span {
+    font-weight: bold; /* Highlight key information */
+    color: #007bff; /* Use a primary color for emphasis */
+}
+.vender-detail-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-start; /* Align the button to the start of the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+ /* -----------------------------------this css is for vender-detail-view---------------------------------------------- */
+/* General Styles */
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f3f6;
+}
+
+/* Vendor Detail Container */
+.vendor-detail-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.vendor-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Vendor Info Section */
+.vendor-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vendor-detail-card {
+    display: flex;
+    align-items: center; /* Center the image and text vertically */
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.vendor-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.vendor-image {
+    flex-shrink: 0; /* Prevent image from shrinking */
+    max-width: 150px; /* Maximum width of the image */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.vendor-image img {
+    width: 100%;
+    border-radius: 10px; /* Rounded corners for the image */
+}
+
+.vendor-text {
+    flex: 1; /* Allow text to take available space */
+}
+
+.vendor-detail {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* Back Button */
+.back-btn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
 
 /* Media query for mobile */
 @media (max-width: 768px) {

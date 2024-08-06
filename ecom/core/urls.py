@@ -11,6 +11,7 @@ urlpatterns = [
     path("category/",views.category_list, name="category-list"),
     path("category/<cid>/",views.category_list_view, name="category-list-view"),
     path("vender/",views.vender_list_view, name="vender_list_view"),
+    path("vender/<vid>",views.vender_detail_view, name="vender_detail_view"),
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

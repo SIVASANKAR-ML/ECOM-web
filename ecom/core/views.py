@@ -24,3 +24,7 @@ def category_list_view(request,cid):
 def vender_list_view(request):
     vender=Vendor.objects.all()
     return render(request,'vender_list_view.html',{'vender':vender})
+
+def vender_detail_view(request,vid):
+    vender=Vendor.objects.get(vid=vid)
+    return render(request,'vender_deatil_view.html',{'vender':vender})
