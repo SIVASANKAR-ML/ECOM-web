@@ -85,7 +85,7 @@ class Product(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category,related_name='products', on_delete=models.SET_NULL, null=True)#using related name is a good practies for showing total no of products in each category
-    Vendor = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True,related_name='vendor')
+    vender = models.ForeignKey(Vendor, on_delete=models.SET_NULL, null=True,related_name='vender')
 
     price = models.DecimalField(max_digits=10, decimal_places=2, default='599')
     old_price = models.DecimalField(max_digits=10, decimal_places=2, default='499')

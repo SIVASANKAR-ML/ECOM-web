@@ -27,4 +27,5 @@ def vender_list_view(request):
 
 def vender_detail_view(request,vid):
     vender=Vendor.objects.get(vid=vid)
-    return render(request,'vender_deatil_view.html',{'vender':vender})
+    products=Product.objects.filter(product_status="published",vender=vender)#'vender'is from models product.vender
+    return render(request,'vender_deatil_view.html',{'vender':vender,'products':products})

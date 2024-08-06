@@ -18,6 +18,25 @@
             <p class="vendor-detail"><strong>Description:</strong> {{ vender.description }}</p>
         </div>
     </div>
+    <section class="featured-products-section">
+        <div class="container">
+            <div class="product-grid">
+                {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                    <div class="product-details">
+                        <h3 class="product-title">{{ product.title }}</h3>
+                        <p class="product-category">{{ product.category }}</p>
+                        <p class="product-vendor">{{ product.Vendor }}</p>
+                        <span class="product-percentage">-{{ product.get_percentage|floatformat}}%</span>
+                        <p class="product-price">{{ product.price }}</p>
+                        <a href="#" class="btn-secondary">Buy Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
     <a href="{% url 'index:vender_list_view' %}">
         <button class="back-btn">Back to Vendor List</button>
     </a>
