@@ -4,7 +4,7 @@ from .models import Category, Product,Vendor
 
 def index(request):
     products=Product.objects.filter( product_status="published",featured=True,)
-    return render(request,'index.html',{'products':products})
+    return render(request,'base.html',{'products':products})
 
 def product_list(request):
     products=Product.objects.filter(featured=True)

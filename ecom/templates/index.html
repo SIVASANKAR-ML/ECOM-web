@@ -1,34 +1,51 @@
-{% extends "base.html" %}
-
-{% block title %}Home{% endblock %}
-
-{% block content %}
-<div class="hero-section">
-    <div class="hero-content">
-        <h2>Welcome to Our Store</h2>
-        <p>Find the best products at unbeatable prices</p>
-        <a href="#" class="btn-primary">Shop Now</a>
-    </div>
-</div>
-
-<section class="featured-products-section">
-    <div class="container">
-        <h2 class="section-title">Featured Products</h2>
-        <div class="product-grid">
-            {% for product in products %}
-            <div class="product-card">
-                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
-                <div class="product-details">
-                    <h3 class="product-title">{{ product.title }}</h3>
-                    <p class="product-category">{{ product.category }}</p>
-                    <p class="product-vendor">{{ product.Vendor }}
-                    <span class="product-percentage">-{{ product.get_percentage|floatformat}}%</span>
-                    <p class="product-price">{{ product.price }}</p>
-                    <a href="#" class="btn-secondary">Buy Now</a>
-                </div>
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My E-commerce Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="{% url 'index:index' %}">Home</a></li>
+                        <li class="dropdown">
+                            <a href="{% url 'index:category-list' %}">Category</a>
+                            <div class="dropdown-content">
+                                {% for c  in categories %}
+                                <a href="{% url 'index:category-list-view' c.cid %}" onclick="showContent('option3')">{{ c.title }}</a>
+                                {% endfor %}
+                                <a href="{% url 'index:category-list' %}" onclick="showContent('option2')">All categories</a>
+                            </div>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'sign-up:logout' %}">Logout</a></li>
+                        {% else %}
+                        <li><a href="{% url 'sign-up:login' %}">Login</a></li>
+                        {% endif %}
+                        <li><a href="{% url 'sign-up:sign-up' %}">Sign-up</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Cart</a></li>
+                    </ul>
+                </nav>
             </div>
-            {% endfor %}
         </div>
-    </div>
-</section>
-{% endblock %}
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Website Name. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
