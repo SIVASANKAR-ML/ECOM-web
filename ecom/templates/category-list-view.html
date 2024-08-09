@@ -8,6 +8,7 @@
         <div class="product-grid">
             {% for product in products %}
             <div class="product-card">
+                <a href="{% url "index:product-detail-view" product.pid  product.vender.vid %}" class="detail-link">
                 <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
                 <div class="product-details">
                     <h3 class="product-title">{{ product.title }}</h3>
@@ -17,6 +18,7 @@
                     <p class="product-price">${{ product.price }}</p>
                     <a href="#" class="btn-secondary">Buy Now</a>
                 </div>
+                </a>
             </div>
             {% endfor %}
         </div>

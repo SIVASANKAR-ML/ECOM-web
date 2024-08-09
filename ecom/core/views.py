@@ -3,7 +3,7 @@ from .models import Category, Product,Vendor
 
 
 def index(request):
-    products=Product.objects.filter( product_status="published",featured=True,)
+    products=Product.objects.filter( product_status="published",featured=True,).select_related('vender')
     return render(request,'base.html',{'products':products})
 
 def product_list(request):
@@ -29,3 +29,8 @@ def vender_detail_view(request,vid):
     vender=Vendor.objects.get(vid=vid)
     products=Product.objects.filter(product_status="published",vender=vender)#'vender'is from models product.vender
     return render(request,'vender_deatil_view.html',{'vender':vender,'products':products})
+
+def product_detail_view(request,pid,vid):
+    vender=Vendor.objects.get(vid=vid)
+    products=Product.objects.get(pid=pid)
+    return render(request,'product_detail_view.html',{'products':products,'vender':vender})

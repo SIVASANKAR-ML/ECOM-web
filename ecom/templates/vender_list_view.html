@@ -1,37 +1,35 @@
 {% extends "index.html" %}
-{% block title %}vender{% endblock title %}
+{% block title %}Vendor{% endblock title %}
 
 {% block content %}
-<section class="category-section">
-    <div class="container-cat">
-        <h2 class="section-title">vendors</h2>
-        <div class="category-grid">
+<section class="vendor-category-section">
+    <div class="vendor-container-cat">
+        <h2 class="vendor-section-title">Vendors</h2>
+        <div class="vendor-category-grid">
             {% for v in vender %}
-            <div class="category-card">
-                {% comment %} <a href="{% url "index:vender_list_view" category.cid %}" class="category-link"> {% endcomment %}
-                    <div class="category-image-container">
-                        <p class="product-vendor">Since {{ v.date|date:'Y' }}</p>
-                        <img src="{{ v.image.url }}" alt="{{ v.title }}" class="category-image">
-                    </div>
-                    <div class="category-details">
-                        <h3 class="category-title">{{ v.title }}</h3>
-                        <p class="category-title">{{ v.vendor.all.count }} Products</p>
-                        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <div class="vendor-category-card">
+                <div class="vendor-category-image-container">
+                    <p class="vendor-product-vendor">Since {{ v.date|date:'Y' }}</p>
+                    <img src="{{ v.image.url }}" alt="{{ v.title }}" class="vendor-category-image">
+                </div>
+                <div class="vendor-category-details">
+                    <h3 class="vendor-category-title">{{ v.title }}</h3>
+                    <p class="vendor-category-title">{{ v.vendor.all.count }} Products</p>
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-                        <div class='vendor-addr'>
-                            <p class="product-vendor">
-                                <span><i class="fas fa-map-marker-alt"></i> Address:</span> {{ v.address }}<br>
-                                <span><i class="fas fa-phone-alt"></i> Call us:</span> {{ v.contact }}
-                            </p>
-                        </div>
-                        <a href="{% url "index:vender_detail_view" v.vid %}">
-                            <button class='vender-detail-btn'>Details</button>
-                        </a>
+                    <div class='vendor-addr'>
+                        <p class="vendor-product-vendor">
+                            <span><i class="fas fa-map-marker-alt"></i> Address:</span> {{ v.address }}<br>
+                            <span><i class="fas fa-phone-alt"></i> Call us:</span> {{ v.contact }}
+                        </p>
                     </div>
-                </a>
+                    <a href="{% url "index:vender_detail_view" v.vid %}">
+                        <button class='vendor-detail-btn'>Details</button>
+                    </a>
+                </div>
             </div>
             {% endfor %}
         </div>
     </div>
+</section>
 {% endblock content %}
-

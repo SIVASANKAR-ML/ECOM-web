@@ -12,17 +12,18 @@
                 <p class="vendor-detail"><strong>Address:</strong> {{ vender.address }}</p>
                 <p class="vendor-detail"><strong>Call us:</strong> {{ vender.contact }}</p>
                 <p class="vendor-detail"><strong>Since:</strong> {{ vender.date|date:'Y' }}</p>
+                <div class="vendor-description">
+                    <p><strong>Description:</strong> {{ vender.description }}</p>
+                </div>
             </div>
-        </div>
-        <div class="vendor-extra">
-            <p class="vendor-detail"><strong>Description:</strong> {{ vender.description }}</p>
         </div>
     </div>
     <section class="featured-products-section">
-        <div class="container">
+        <div class="container-vendor-detail">
             <div class="product-grid">
                 {% for product in products %}
                 <div class="product-card">
+                    <a href="{% url "index:product-detail-view" product.pid product.vender.vid %}" class="detail-link">   
                     <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
                     <div class="product-details">
                         <h3 class="product-title">{{ product.title }}</h3>
@@ -31,7 +32,9 @@
                         <span class="product-percentage">-{{ product.get_percentage|floatformat}}%</span>
                         <p class="product-price">{{ product.price }}</p>
                         <a href="#" class="btn-secondary">Buy Now</a>
+                        <a href="{% url "index:product-detail-view" product.pid product.vender.vid %}" class="btn-secondary">Details</a>
                     </div>
+                    </a>
                 </div>
                 {% endfor %}
             </div>
