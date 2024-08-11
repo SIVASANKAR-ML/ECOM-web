@@ -18,7 +18,8 @@
             {% for product in products %}
             <div class="product-card">
                 <a href="{% url "index:product-detail-view" product.pid product.vender.vid %}" class="detail-link">
-                <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                 </a>
                 <div class="product-details">
                     <h3 class="product-title">{{ product.title }}</h3>
                     <p class="product-category">{{ product.category }}</p>
@@ -26,7 +27,6 @@
                     <span class="product-percentage">-{{ product.get_percentage|floatformat}}%</span>
                     <p class="product-price">{{ product.price }}</p>
                     <a href="#" class="btn-secondary">Buy Now</a>
-                </a>
                 </div>
             </div>
             {% endfor %}

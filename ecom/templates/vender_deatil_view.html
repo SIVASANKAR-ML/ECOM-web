@@ -24,7 +24,8 @@
                 {% for product in products %}
                 <div class="product-card">
                     <a href="{% url "index:product-detail-view" product.pid product.vender.vid %}" class="detail-link">   
-                    <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}" class="product-image">
+                    </a>
                     <div class="product-details">
                         <h3 class="product-title">{{ product.title }}</h3>
                         <p class="product-category">{{ product.category }}</p>
@@ -34,7 +35,6 @@
                         <a href="#" class="btn-secondary">Buy Now</a>
                         <a href="{% url "index:product-detail-view" product.pid product.vender.vid %}" class="btn-secondary">Details</a>
                     </div>
-                    </a>
                 </div>
                 {% endfor %}
             </div>
