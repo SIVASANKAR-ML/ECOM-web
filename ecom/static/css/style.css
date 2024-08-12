@@ -132,7 +132,7 @@ body {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color:  #f39c12;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -141,7 +141,7 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #2980b9;
+    background-color:  #f39c12;
 }
 
 /* Header Styles */
@@ -275,7 +275,7 @@ footer p {
 .register-form-container h1, .log-in .logh1 {
     font-size: 2em;
     margin-bottom: 20px;
-    color: #007bff;
+    color:  #f39c12;
 }
 
 .register-form-container .form-group, .log-in .form-group {
@@ -306,7 +306,7 @@ footer p {
 }
 
 .register-form-container .submit-btn {
-    background-color: #007bff;
+    background-color:  #f39c12;
     color: white;
     padding: 12px 15px;
     border: none;
@@ -318,7 +318,7 @@ footer p {
 }
 
 .register-form-container .submit-btn:hover {
-    background-color: #0056b3;
+    background-color: #f39c12;
     transform: translateY(-2px);
 }
 
@@ -589,7 +589,7 @@ footer p {
 .vendor-detail-btn {
     margin-top: 10px;
     padding: 10px 20px;
-    background-color: #3498db;
+    background-color: #f39c12;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -600,7 +600,7 @@ footer p {
 }
 
 .vendor-detail-btn:hover {
-    background-color: #2980b9;
+    background-color:  #f39c12;
     transform: translateY(-2px);
 }
 
@@ -692,7 +692,7 @@ footer p {
 }
 
 .btn-secondary {
-    background-color: #0073e6;
+    background-color:  #f39c12;
     border: 1px solid #efede8;
     padding: 5px 10px;
     border-radius: 4px;
@@ -703,7 +703,7 @@ footer p {
 }
 
 .back-btn {
-    background-color: #0073e6;
+    background-color:  #f39c12;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -824,6 +824,32 @@ footer {
 .social a i {
     margin-right: 8px;
 }
+.custom-product-image-section {
+    text-align: center; /* Center the main image and thumbnails */
+    margin-bottom: 20px;
+}
+
+.custom-product-thumbnails {
+    display: flex;
+    justify-content: center; /* Center the thumbnails under the main image */
+    gap: 10px; /* Space between thumbnails */
+    margin-top: 10px; /* Space between the main image and thumbnails */
+}
+
+.custom-product-thumbnail {
+    width: 60px; /* Width of the thumbnail */
+    height: 60px; /* Height of the thumbnail */
+    object-fit: cover; /* Ensure the image covers the thumbnail area */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    border: 1px solid #ddd; /* Border around each thumbnail */
+    transition: transform 0.3s, border 0.3s; /* Smooth transform and border transition */
+}
+
+.custom-product-thumbnail:hover {
+    border: 2px solid #000; /* Change border color on hover */
+
+}
+
 
 
 /* Responsive Styling */

@@ -33,4 +33,5 @@ def vender_detail_view(request,vid):
 def product_detail_view(request,pid,vid):
     vender=Vendor.objects.get(vid=vid)
     products=Product.objects.get(pid=pid)
-    return render(request,'product_detail_view.html',{'products':products,'vender':vender})
+    p_image=products.p_images.all()
+    return render(request,'product_detail_view.html',{'products':products,'vender':vender,'p_image':p_image})

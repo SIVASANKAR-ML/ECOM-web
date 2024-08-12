@@ -2,13 +2,22 @@
 {% block content %}
 <div class="custom-amazon-product-page">
     <div class="custom-product-container">
-        <!-- Product Image -->
+        <!-- Product Image Section -->
         <div class="custom-product-image-section">
-            <img src="{{ products.image.url }}" alt="{{ products.title }}" class="custom-product-main-image">
+            <!-- Main Product Image -->
+            <img id="mainImage" src="{{ products.image.url }}" alt="{{ products.title }}" class="custom-product-main-image">
             <span class="custom-product-percentage">-{{ products.get_percentage|floatformat }}%</span>
+            <!-- Thumbnail Images -->
+            <div class="custom-product-thumbnails">
+                {% for image in p_image %}
+                    <img src="{{ image.image.url }}" alt="{{ products.title }}" class="custom-product-thumbnail" onclick="changeImage('{{image.image.url }}')">
+                {% endfor %}
+            </div>
         </div>
 
-        <!-- Product Details -->
+        
+
+        <!-- Product Details Section -->
         <div class="custom-product-details-section">
             <h1 class="custom-product-title">{{ products.title }}</h1>
             <p class="custom-product-rating">Rating: ★★★★☆ (24,320 ratings)</p>
@@ -16,14 +25,14 @@
             <p class="custom-product-price">Price: ${{ products.price }}</p>
             <p class="custom-product-description">{{ products.description }}</p>
 
-            <!-- Buy Button -->
+            <!-- Buy Button Section -->
             <div class="custom-buy-now-section">
                 <a href="#" class="custom-btn-buy-now">Buy Now</a>
                 <a href="#" class="custom-btn-add-to-cart">Add to Cart</a>
             </div>
         </div>
 
-        <!-- Vendor Details -->
+        <!-- Vendor Details Section -->
         <div class="custom-vendor-details-section">
             <h3>Sold by: {{ vender.title }}</h3>
             <p>Address: {{ vender.address }}</p>
@@ -33,4 +42,10 @@
         </div>
     </div>
 </div>
+
+<script>
+    function changeImage(url) {
+        document.getElementById("mainImage").src = url;
+    }
+</script>
 {% endblock %}
