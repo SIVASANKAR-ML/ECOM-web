@@ -23,7 +23,7 @@
             <p class="custom-product-rating">Rating: ★★★★☆ (24,320 ratings)</p>
             <p class="custom-product-category">Category: {{ products.category }}</p>
             <p class="custom-product-price">Price: ${{ products.price }}</p>
-            <p class="custom-product-description">{{ products.description }}</p>
+            <p class="custom-product-description">{{ products.description|truncatechars:160 }}</p>
 
             <!-- Buy Button Section -->
             <div class="custom-buy-now-section">
@@ -39,6 +39,12 @@
             <p>Call us: {{ vender.contact }}</p>
             <p>Since: {{ vender.date|date:'Y' }}</p>
             <a href="{% url 'index:vender_detail_view' vender.vid %}" class="custom-btn-vendor-details">More Details</a>
+        </div>
+        </div class='about-detail'>
+            <div class='about--details'>
+                <h3>About</h3>
+                <p class="custom-product-about">{{ products.description }}</p>
+            </div>
         </div>
     </div>
 </div>
