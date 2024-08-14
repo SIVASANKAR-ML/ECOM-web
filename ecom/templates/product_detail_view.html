@@ -3,19 +3,27 @@
 <div class="custom-amazon-product-page">
     <div class="custom-product-container">
         <!-- Product Image Section -->
-        <div class="custom-product-image-section">
+        <div class="custom-product-image-section" style="position: relative;">
+            <!-- Left Arrow Button -->
+            <button id="prevBtn" class="custom-arrow-button" onclick="prevImage()" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); z-index: 1;">&#10094;</button>
+
             <!-- Main Product Image -->
             <img id="mainImage" src="{{ products.image.url }}" alt="{{ products.title }}" class="custom-product-main-image">
             <span class="custom-product-percentage">-{{ products.get_percentage|floatformat }}%</span>
+
+            <!-- Right Arrow Button -->
+            <button id="nextBtn" class="custom-arrow-button" onclick="nextImage()" style="position: absolute; right: 0; top: 50%; transform: translateY(-50%); z-index: 1;">&#10095;</button>
+
             <!-- Thumbnail Images -->
             <div class="custom-product-thumbnails">
+                <!-- Include the main product image as a thumbnail -->
+                <img src="{{ products.image.url }}" alt="{{ products.title }}" class="custom-product-thumbnail" onclick="changeImage('{{ products.image.url }}')">
+                
                 {% for image in p_image %}
                     <img src="{{ image.image.url }}" alt="{{ products.title }}" class="custom-product-thumbnail" onclick="changeImage('{{image.image.url }}')">
                 {% endfor %}
             </div>
         </div>
-
-        
 
         <!-- Product Details Section -->
         <div class="custom-product-details-section">
@@ -40,18 +48,43 @@
             <p>Since: {{ vender.date|date:'Y' }}</p>
             <a href="{% url 'index:vender_detail_view' vender.vid %}" class="custom-btn-vendor-details">More Details</a>
         </div>
-        </div class='about-detail'>
-            <div class='about--details'>
-                <h3>About</h3>
-                <p class="custom-product-about">{{ products.description }}</p>
-            </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-detail">
+        <div class="about--details">
+            <h3>About</h3>
+            <p class="custom-product-about">{{ products.description }}</p>
         </div>
     </div>
 </div>
 
 <script>
+    let imageIndex = 0;
+    const images = [
+        "{{ products.image.url }}",  // Main product image
+        {% for image in p_image %}
+            "{{ image.image.url }}"{% if not forloop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+    function updateImage() {
+        document.getElementById("mainImage").src = images[imageIndex];
+    }
+
+    function nextImage() {
+        imageIndex = (imageIndex + 1) % images.length;
+        updateImage();
+    }
+
+    function prevImage() {
+        imageIndex = (imageIndex - 1 + images.length) % images.length;
+        updateImage();
+    }
+
     function changeImage(url) {
-        document.getElementById("mainImage").src = url;
+        imageIndex = images.indexOf(url);
+        updateImage();
     }
 </script>
 {% endblock %}
