@@ -57,6 +57,30 @@
             <p class="custom-product-about">{{ products.description }}</p>
         </div>
     </div>
+    <section class="featured-products-section">
+        <div class="container">
+            {% if cproduct %}
+                <h2 class="section-title">Related Products</h2>
+            {% endif %}
+            <div class="product-grid">
+                {% for related in cproduct %}
+                <div class="product-card">
+                    <a href="{% url "index:product-detail-view" related.pid related.vender.vid %}" class="detail-link">
+                        <img src="{{ related.image.url }}" alt="{{ related.title }}" class="product-image">
+                     </a>
+                    <div class="product-details">
+                        <h3 class="product-title">{{ related.title }}</h3>
+                        <p class="product-category">{{ related.category }}</p>
+                        <p class="product-vendor">{{ related.Vendor }}
+                        <span class="product-percentage">-{{ related.get_percentage|floatformat}}%</span>
+                        <p class="product-price">{{ related.price }}</p>
+                        <a href="#" class="btn-secondary">Buy Now</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 </div>
 
 <script>

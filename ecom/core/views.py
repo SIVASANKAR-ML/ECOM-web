@@ -33,5 +33,6 @@ def vender_detail_view(request,vid):
 def product_detail_view(request,pid,vid):
     vender=Vendor.objects.get(vid=vid)
     products=Product.objects.get(pid=pid)
+    cproduct=Product.objects.filter(category=products.category).exclude(pid=pid) # exclude: this is used to remove current viewed product from the related product 
     p_image=products.p_images.all()
-    return render(request,'product_detail_view.html',{'products':products,'vender':vender,'p_image':p_image})
+    return render(request,'product_detail_view.html',{'products':products,'vender':vender,'p_image':p_image,'cproduct':cproduct})
