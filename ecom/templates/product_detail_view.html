@@ -30,7 +30,15 @@
             <h1 class="custom-product-title">{{ products.title }}</h1>
             <p class="custom-product-rating">Rating: ★★★★☆ (24,320 ratings)</p>
             <p class="custom-product-category">Category: {{ products.category }}</p>
-            <p class="custom-product-price">Price: ${{ products.price }}</p>
+            <p class="custom-product-category">Tag:
+                    {% for tag in products.tags.all %} 
+                        <a href="#">
+                        #{{ tag.name }} 
+                         </a>
+                    {% endfor %}
+            </p>
+  
+            <p class="custom-product-price">Price: ${{ products.price }}</p> 
             <p class="custom-product-description">{{ products.description|truncatechars:160 }}</p>
 
             <!-- Buy Button Section -->

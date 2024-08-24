@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     # Installed apps
     'core',
     'userauth',
+    'taggit',
 ]
 
 MIDDLEWARE = [
