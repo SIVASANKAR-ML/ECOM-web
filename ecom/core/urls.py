@@ -13,6 +13,7 @@ urlpatterns = [
     path("vender/",views.vender_list_view, name="vender_list_view"),
     path("vender/<vid>",views.vender_detail_view, name="vender_detail_view"),
     path("product-detail/<pid>/<vid>",views.product_detail_view,name='product-detail-view'),
+    path("tag/<tag_slug>",views.tag_list,name="tags"),
 
 
 ]

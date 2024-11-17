@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from .models import Category, Product,Vendor
+from taggit.models import Tag
 
 
 def index(request):
@@ -36,3 +37,13 @@ def product_detail_view(request,pid,vid):
     cproduct=Product.objects.filter(category=products.category).exclude(pid=pid) # exclude: this is used to remove current viewed product from the related product 
     p_image=products.p_images.all()
     return render(request,'product_detail_view.html',{'products':products,'vender':vender,'p_image':p_image,'cproduct':cproduct})
+
+def tag_list(request,tag_slug=None):
+    products=Product.objects.filter(product_status="published")
+
+    tags=None
+    if tag_slug:
+        tag=get_object_or_404(Tag,slug=tag_slug)
+        products=Product.objects.filter(tags__in=[tag])
+
+    return render(request,'tag_list.html',{'products':products,'tags':tags})

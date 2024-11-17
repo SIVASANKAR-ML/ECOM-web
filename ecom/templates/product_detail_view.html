@@ -32,8 +32,8 @@
             <p class="custom-product-category">Category: {{ products.category }}</p>
             <p class="custom-product-category">Tag:
                     {% for tag in products.tags.all %} 
-                        <a href="#">
-                        #{{ tag.name }} 
+                        <a href="{% url "index:tags" tag.slug %}">
+                        {{ tag.name }} 
                          </a>
                     {% endfor %}
             </p>
